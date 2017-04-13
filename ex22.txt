@@ -1,0 +1,114 @@
+########################
+# ESCAPE CHARS
+########################
+
+\\	           backslash
+\'	           single quote
+\"             double quote
+\a	           plays the bell sound in the terminal
+\b	           backspace
+\f             moves to the next line. The beginning of the new line aligns to the end of the line above
+\n	           new line
+\r	           Moves to a new line
+\t	           tab character
+e.g. \u2713    unicode characters
+\v	           vertical tab. The beginning of the new line aligns to the end of the line above. Looks kinda like \f
+e.g. 0377	     Adding a zero in front of a number will turn it into an octal value. `0377` will equal `255`
+
+########################
+# PRINTING STRINGS
+########################
+
+# quote strings: by using % (percent character) and specifying a delimiting character, for example:
+%{}
+
+# print without interpolation
+puts %q{
+  string1
+  string2
+  string3
+}
+
+# Store a multiple line string
+fat_cat = """
+  This is a
+  multiple line
+  string
+"""
+
+########################
+# GETTING USER INPUT
+########################
+
+# get string
+gets
+
+# get string and remove the \n "new line" char
+gets.chomp
+
+# get a string and convert it to an integer
+gets.chomp.to_i
+
+########################
+# COMMAND LINE ARGUMENTS
+########################
+
+# assuming the following code is saved into test.rb we can run it
+# and pass in the arguments from the command line like so:
+# ruby test.rb one two three
+# ARGV returns an array
+
+first, second, third = ARGV
+
+puts "Your first variable is: #{first}"
+puts "Your second variable is: #{second}"
+puts "Your third variable is: #{third}"
+
+
+########################
+# FILE HANDLING
+########################
+
+# storing the first commandline argument in a variabel
+filename = ARGV.first
+
+# Opening filename and storing it in variable
+txt = open(filename)
+
+# Read it
+print txt.read
+
+# Get file_again from user input
+file_again = $stdin.gets.chomp
+
+# Open file_again and store in a variable
+txt_again = open(file_again)
+
+# Read it
+print txt_again.read
+
+########################
+# FILE METHODS
+########################
+
+File.close            # close the File
+File.read             # read the content of the File
+File.readline         # read just one line of the File
+File.truncate         # emptie the File
+File.write("value")   # write the "value" to the file)
+File.seek(0)          # move to the first byte of the file
+File.rewind           # move back to the beginning of the file
+
+########################
+# FILE OPEN MODES
+########################
+open(filename, mode)
+
+"r" 	Read-only, starts at beginning of file (default mode).
+"r+"	Read-write, starts at beginning of file.
+"w"  	Write-only, truncates existing file to zero length or creates a new file for writing.
+"w+"	Read-write, truncates existing file to zero length or creates a new file for reading and writing.
+"a"  	Write-only, starts at end of file if file exists, otherwise creates a new file for writing.
+"a+"	Read-write, starts at end of file if file exists, otherwise creates a new file for reading and writing.
+"b"  	Binary file mode (may appear with any of the key letters listed above). Suppresses EOL <-> CRLF conversion on Windows. And sets external encoding to ASCII-8BIT unless explicitly specified.
+"t"  	Text file mode (may appear with any of the key letters listed above except "b").
