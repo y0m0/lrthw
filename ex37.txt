@@ -104,7 +104,6 @@ $         Global scope                      $stdin
 ? :       Ternary operator                  1 > 0 ? "true" : "false"
 =~        RegEx match. Return offset        'string' =~ /str/
 
-
 ** Returns 0 if first operand equals second, 1 if first operand
    is greater than the second and -1 if first operand is less than the second.
 
@@ -120,3 +119,4 @@ Operator  Description                         Example
 /=        Divide AND assignment operator	    c /= a is equivalent to c = c / a
 %=        Modulus AND assignment operator	    c %= a is equivalent to c = c % a
 **=       Exponent AND assignment operator    c **= a is equivalent to c = c ** a
+||=       http://davidablack.net/dablog.html#2008/3/25/a-short-circuit-edge-case
