@@ -351,7 +351,7 @@ class Map
   end
 end
 
-
+## Define the Player class
 class Player
   attr_accessor :life
 
@@ -369,6 +369,7 @@ class Player
   end
 end
 
+## Define the Final boss class
 class Ghotan
   attr_accessor :life
   def initialize
@@ -382,7 +383,7 @@ class Ghotan
 end
 
 
-
+# Run the game
 a_map = Map.new('central_corridor')
 a_game = Engine.new(a_map)
 a_game.play
