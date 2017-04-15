@@ -8,7 +8,7 @@ end
 
 ## Dog is-a Animal
 class Dog < Animal
-
+attr_reader :name
   def initialize(name)
     ## Dog has-a name
     @name = name
@@ -30,12 +30,27 @@ class Person
   def initialize(name)
     ## Person has-a name
     @name = name
-
     ## Person has-a pet of some kind
     @pet = nil
+    # Person has-many friends
+    @friends = []
+    @address = {}
   end
 
-  attr_accessor :pet
+  attr_accessor :pet, :friends, :address
+
+  def description
+    puts "Person name: #{@name}"
+    if pet != nil
+      puts "#{@name} has pet called: #{pet.name}"
+    end
+    puts "#{@name} has many friends: "
+    friends.each { |friend| puts friend }
+    puts "#{@name} lives: "
+    address.each do |k, v|
+      puts "#{k}: #{v}"
+    end
+  end
 end
 
 ## Employee is-a Person
@@ -103,3 +118,13 @@ harry = Halibut.new("harry")
 puts flipper.name + " " + flipper.swim
 rover.speak("bau bau!")
 satan.speak("miao miao!")
+
+jerry = Person.new("Jerry")
+jerry.pet = rover
+jerry.friends = ["Jimmy", "Mary", "Frank"]
+jerry.address = {"Address" => "123 Main St.",
+                 "City" => "Copenhagen",
+                 "State" => "Denmark"
+               }
+
+jerry.description
